@@ -4,14 +4,17 @@ import { NextFunction } from "express";
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware{
     use(req: Request, res: Response, next: NextFunction) {
+        const timestamp = new Date().toISOString();
+
         console.log(
-            `Estas ejecutando un metodo ${req.method} en la ruta ${req.url}`
+            `[${timestamp}]Estas ejecutando un metodo ${req.method} en la ruta ${req.url}`
         );
         next();
     }
 }
 
 export function loggerGlobal(req:Request, res:Response,  next: NextFunction){
-    console.log(`Estas ejecutando un metodo ${req.method} en la ruta ${req.url}`);
+    const timestamp = new Date().toISOString();
+    console.log(`[${timestamp}]Estas ejecutando un metodo ${req.method} en la ruta ${req.url}`);
     next();
 }
