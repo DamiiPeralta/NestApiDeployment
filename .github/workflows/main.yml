@@ -26,4 +26,4 @@ with:
   context: .
   file: ./Dockerfile
   push: true
-  tags: ${{ secrets.DOCKERHUB_USERNAME }}/nestApi:latest
+  tags: ${{ secrets.DOCKERHUB_USERNAME }}/nest-api:latest
