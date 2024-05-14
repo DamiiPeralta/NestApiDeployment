@@ -11,6 +11,14 @@ export class ProductsService {
     async getProducts(): Promise<Product[]> {
         return await this.productsRepository.getProducts();
     }
+    
+    async getStockOfProduct(name: string): Promise<string>{
+        return await this.productsRepository.getStockOfProduct(name);
+    }
+
+    async addHardProduct(): Promise<string>{
+        return await this.productsRepository.addHardProducts();
+    }
 
     async getProductById(id: string): Promise<Product> {
         return await this.productsRepository.getProductById(id);
@@ -20,11 +28,12 @@ export class ProductsService {
         return await this.productsRepository.createProduct(productDto);
     }
 
-    async updateProduct(id: string, productDto: ProductDto): Promise<Product> {
+    async updateProduct(id: string, productDto: Partial<Product>): Promise<Product> {
         return await this.productsRepository.updateProduct(id, productDto);
     }
 
     async deleteProduct(id: string): Promise<void> {
         return await this.productsRepository.deleteProduct(id);
     }
+    
 }
